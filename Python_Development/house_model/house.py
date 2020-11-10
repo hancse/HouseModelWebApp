@@ -79,11 +79,11 @@ def house(T_outdoor,Q_internal,Q_solar,SP_T,time_sim,CF,Rair_outdoor,Rair_wall,C
 
     Tair  = np.ones(len(t))*Tair0
     Twall  = np.ones(len(t))*Twall0
-	consumption =  np.ones(len(t))
-      
+    consumption =  np.ones(len(t))
+    kp= 7000  
     for i in range(len(t)-1):
         
-		err=SP_Sim[i+1] - Tair[i]
+        err=SP_T[i+1] - Tair[i]
         Qinst=err*kp
         Qinst=np.clip(Qinst, 0, 7000)
 		
@@ -99,7 +99,7 @@ def house(T_outdoor,Q_internal,Q_solar,SP_T,time_sim,CF,Rair_outdoor,Rair_wall,C
 		# Adjust initial condition for next loop
         
         y0 = y[-1]
-		consumption[i] = Qinst
+        consumption[i] = Qinst
     return Tair, Twall, consumption
 #if __name__ == '__main__':
 #	print('test')

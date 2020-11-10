@@ -1,6 +1,15 @@
-#-----------------------
+#______User_file______________________
 
-Run.py : define a number of Simulation days and call the calculation model.
+
+Temperature_SP.py: Define temperature SP profile (Thermostat setting.)
+	- User only need to define the SP profile for thermostat in this file.
+
+
+#_____Developer_file_____________
+
+__main__.py : Module run file, plot the simulation results
+
+Simulation.py  : define a number of Simulation days and call the calculation model.
 
 house.py : diffirential equation of the house model, return indoor,walls temperature and energy consumption
 
@@ -12,5 +21,6 @@ qsun.py: function to calculate solar irradiation on an incline surface
 
 Total_Irrad.py: use qsun.py for calculating solar irradiation from different angles (ex: E,SE,W,...) from the weather data file --> use weather API instead.
 
-Temperature_SP.py: Define temperature SP profile (Thermostat setting.)
+
+
 
